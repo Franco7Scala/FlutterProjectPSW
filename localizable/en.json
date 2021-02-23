@@ -2,5 +2,11 @@
   "welcome": "Welcome",
   "home": "home",
   "search": "search",
-  "user": "user"
+  "user": "user",
+  "register": "register",
+  "firstName": "first name",
+  "lastName": "last name",
+  "telephoneNumber": "telephone",
+  "email": "email",
+  "address": "address"
 }

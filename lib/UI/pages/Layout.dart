@@ -1,7 +1,7 @@
 import 'package:fakestore/UI/behaviors/AppLocalizations.dart';
 import 'package:fakestore/UI/pages/Home.dart';
 import 'package:fakestore/UI/pages/Search.dart';
-import 'package:fakestore/UI/pages/User.dart';
+import 'package:fakestore/UI/pages/UserRegistration.dart';
 import 'package:flutter/material.dart';
 
 
@@ -48,7 +48,7 @@ class _LayoutState extends State<Layout> {
           children: [
             Home(),
             Search(),
-            User(),
+            UserRegistration(),
           ],
         ),
       ),

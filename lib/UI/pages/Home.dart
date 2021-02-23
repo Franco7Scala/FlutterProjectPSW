@@ -35,6 +35,7 @@ class _HomeState extends State<Home> {
               child: Icon(
                 Icons.shopping_basket_outlined,
                 size: 300,
+                color: Theme.of(context).primaryColor,
               ),
             )
           ],

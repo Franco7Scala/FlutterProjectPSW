@@ -2,5 +2,11 @@
   "welcome": "benvenuto",
   "home": "home",
   "search": "cerca",
-  "user": "utente"
+  "user": "utente",
+  "register": "registrati",
+  "firstName": "nome",
+  "lastName": "cognome",
+  "telephoneNumber": "telefono",
+  "email": "email",
+  "address": "indirizzo"
 }

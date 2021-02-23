@@ -18,9 +18,9 @@ class App extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
       ],
       theme: ThemeData(
-        primaryColor: Colors.lightBlue,
+        primaryColor: Colors.indigo,
         backgroundColor: Colors.white,
-        buttonColor: Colors.blue,
+        buttonColor: Colors.lightBlueAccent,
       ),
       darkTheme: ThemeData(
         primaryColor: Colors.amberAccent,
