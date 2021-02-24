@@ -1,3 +1,4 @@
+import 'package:fakestore/model/support/extensions/StringCapitalization.dart';
 import 'package:fakestore/UI/behaviors/AppLocalizations.dart';
 import 'package:fakestore/UI/pages/Home.dart';
 import 'package:fakestore/UI/pages/Search.dart';
@@ -38,9 +39,9 @@ class _LayoutState extends State<Layout> {
           title: Text(title),
           bottom: TabBar(
             tabs: [
-              Tab(text: AppLocalizations.of(context).translate("home"), icon: Icon(Icons.home_rounded)),
-              Tab(text: AppLocalizations.of(context).translate("search"), icon: Icon(Icons.search_rounded)),
-              Tab(text: AppLocalizations.of(context).translate("user"), icon: Icon(Icons.person_rounded)),
+              Tab(text: AppLocalizations.of(context).translate("home").capitalize, icon: Icon(Icons.home_rounded)),
+              Tab(text: AppLocalizations.of(context).translate("search").capitalize, icon: Icon(Icons.search_rounded)),
+              Tab(text: AppLocalizations.of(context).translate("user").capitalize, icon: Icon(Icons.person_rounded)),
             ],
           ),
         ),

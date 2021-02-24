@@ -16,6 +16,9 @@ class UserRegistration extends StatefulWidget {
 }
 
 class _UserRegistrationState extends State<UserRegistration> {
+  bool _adding = false;
+  User _justAddedUser;
+
   TextEditingController _firstNameFiledController = TextEditingController();
   TextEditingController _lastNameFiledController = TextEditingController();
   TextEditingController _telephoneNumberFiledController = TextEditingController();
@@ -26,7 +29,7 @@ class _UserRegistrationState extends State<UserRegistration> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
           children: [
             Padding(
@@ -68,6 +71,18 @@ class _UserRegistrationState extends State<UserRegistration> {
                       _register();
                     },
                   ),
+                  Center(
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                      child: _adding ?
+                      CircularProgressIndicator() :
+                      _justAddedUser != null ?
+                      Text(
+                          AppLocalizations.of(context).translate("just_added") + ":" + _justAddedUser.firstName + " " + _justAddedUser.lastName + "!"
+                      ) :
+                      SizedBox.shrink(),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -77,7 +92,11 @@ class _UserRegistrationState extends State<UserRegistration> {
     );
   }
 
-  Future<User> _register() {
+  void _register() {
+    setState(() {
+      _adding = true;
+      _justAddedUser = null;
+    });
     User user = User(
       firstName: _firstNameFiledController.text,
       lastName: _lastNameFiledController.text,
@@ -85,7 +104,12 @@ class _UserRegistrationState extends State<UserRegistration> {
       email: _emailFiledController.text,
       address: _addressFiledController.text,
     );
-    return Model.sharedInstance.addUser(user);
+    Model.sharedInstance.addUser(user).then((result) {
+      setState(() {
+        _adding = false;
+        _justAddedUser = result;
+      });
+    });
   }
 
 

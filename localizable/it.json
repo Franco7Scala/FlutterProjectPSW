@@ -8,5 +8,6 @@
   "lastName": "cognome",
   "telephoneNumber": "telefono",
   "email": "email",
-  "address": "indirizzo"
+  "address": "indirizzo",
+  "just_added": "appena aggiunto"
 }
