@@ -25,7 +25,9 @@ class App extends StatelessWidget {
       darkTheme: ThemeData(
         primaryColor: Colors.amberAccent,
         backgroundColor: Colors.black,
+        canvasColor: Colors.black,
         buttonColor: Colors.amber,
+        cardColor: Colors.grey[800],
       ),
       home: Layout(title: Constants.APP_NAME),
     );

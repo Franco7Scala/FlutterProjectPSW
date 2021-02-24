@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -24,40 +26,49 @@ class InputField extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(5),
       child: TextField(
-          enabled: enabled,
-          maxLength: maxLength,
-          obscureText: isPassword,
-          textAlign: this.textAlign == null ? TextAlign.left : this.textAlign,
-          maxLines: multiline != null && multiline == true ? null : 1,
-          keyboardType: keyboardType,
-          inputFormatters: keyboardType == TextInputType.number ? <TextInputFormatter>[
-            FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-          ] : null,
-          onChanged: onChanged,
-          onSubmitted: onSubmit,
-          onTap: onTap,
-          controller: controller,
-          cursorColor: Theme.of(context).splashColor,
-          style: TextStyle(height: 1.0),
-          decoration: InputDecoration(
-            fillColor: Theme.of(context).primaryColor,
-            focusedBorder: OutlineInputBorder(
-                borderRadius: new BorderRadius.circular(30.0),
-                borderSide: BorderSide(
-                  color: Theme.of(context).unselectedWidgetColor,
-                )
+        enabled: enabled,
+        maxLength: maxLength,
+        obscureText: isPassword,
+        textAlign: this.textAlign == null ? TextAlign.left : this.textAlign,
+        maxLines: multiline != null && multiline == true ? null : 1,
+        keyboardType: keyboardType,
+        inputFormatters: keyboardType == TextInputType.number ? <TextInputFormatter>[
+          FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+        ] : null,
+        onChanged: onChanged,
+        onSubmitted: onSubmit,
+        onTap: onTap,
+        controller: controller,
+        cursorColor: Theme.of(context).primaryColor,
+        style: TextStyle(
+          height: 1.0,
+          color: Theme.of(context).primaryColor,
+        ),
+        decoration: InputDecoration(
+          enabledBorder: OutlineInputBorder(
+            borderRadius: new BorderRadius.circular(30.0),
+            borderSide: BorderSide(
+              color: Theme.of(context).primaryColor,
             ),
-            border: new OutlineInputBorder(
-              borderRadius: new BorderRadius.circular(30.0),
-              borderSide: BorderSide(
-                color: Theme.of(context).unselectedWidgetColor,
-              ),
+          ),
+          fillColor: Theme.of(context).primaryColor,
+          focusedBorder: OutlineInputBorder(
+            borderRadius: new BorderRadius.circular(30.0),
+            borderSide: BorderSide(
+              color: Theme.of(context).primaryColor,
             ),
-            labelText: labelText,
-            labelStyle: TextStyle(
-              color: Theme.of(context).unselectedWidgetColor,
+          ),
+          border: new OutlineInputBorder(
+            borderRadius: new BorderRadius.circular(30.0),
+            borderSide: BorderSide(
+              color: Theme.of(context).primaryColor,
             ),
-          )
+          ),
+          labelText: labelText,
+          labelStyle: TextStyle(
+            color: Theme.of(context).primaryColor,
+          ),
+        ),
       ),
     );
   }

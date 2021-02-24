@@ -27,6 +27,7 @@ class _HomeState extends State<Home> {
                 AppLocalizations.of(context).translate("welcome").capitalize + "!",
                 style: TextStyle(
                   fontSize: 50,
+                  color: Theme.of(context).primaryColor,
                 ),
               ),
             ),

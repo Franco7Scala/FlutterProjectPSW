@@ -9,5 +9,6 @@
   "telephoneNumber": "telephone",
   "email": "email",
   "address": "address",
-  "just_added": "just added"
+  "just_added": "just added",
+  "no_results": "no results"
 }

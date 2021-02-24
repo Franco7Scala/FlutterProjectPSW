@@ -38,6 +38,7 @@ class _UserRegistrationState extends State<UserRegistration> {
                 AppLocalizations.of(context).translate("register").capitalize + "!",
                 style: TextStyle(
                   fontSize: 50,
+                  color: Theme.of(context).primaryColor,
                 ),
               ),
             ),
