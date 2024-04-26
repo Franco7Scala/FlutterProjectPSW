@@ -10,5 +10,14 @@
   "email": "email",
   "address": "address",
   "just_added": "just added",
-  "no_results": "no results"
+  "no_results": "no results",
+  "animation": "animation",
+  "button": "button",
+  "oops": "Oops...",
+  "all_fields_required": "All fields are required!",
+  "user_or_password_wrong": "User or password are wrong!",
+  "unknown_error": "Unknown error!",
+  "log_in": "LogIn",
+  "password": "password"
+
 }

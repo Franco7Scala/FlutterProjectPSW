@@ -1,6 +1,6 @@
 class User {
-  int id;
-  String code;
+  int? id;
+  String? code;
   String firstName;
   String lastName;
   String telephoneNumber;
@@ -8,7 +8,7 @@ class User {
   String address;
 
 
-  User({this.id, this.code, this.firstName, this.lastName, this.telephoneNumber, this.email, this.address});
+  User({this.id, this.code, required this.firstName, required this.lastName, required this.telephoneNumber, required this.email, required this.address});
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(

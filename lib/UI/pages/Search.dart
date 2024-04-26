@@ -1,5 +1,5 @@
 import 'package:fakestore/UI/behaviors/AppLocalizations.dart';
-import 'package:fakestore/UI/widgets/CircularIconButton.dart';
+import 'package:fakestore/UI/widgets/buttons/CircularIconButton.dart';
 import 'package:fakestore/UI/widgets/InputField.dart';
 import 'package:fakestore/UI/widgets/ProductCard.dart';
 import 'package:fakestore/model/Model.dart';
@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 
 
 class Search extends StatefulWidget {
-  Search({Key key}) : super(key: key);
+  Search() : super();
 
 
   @override
@@ -18,7 +18,7 @@ class Search extends StatefulWidget {
 
 class _SearchState extends State<Search> {
   bool _searching = false;
-  List<Product> _products;
+  List<Product>? _products;
 
   TextEditingController _searchFiledController = TextEditingController();
 
@@ -44,7 +44,7 @@ class _SearchState extends State<Search> {
         children: [
           Flexible(
             child: InputField(
-              labelText: AppLocalizations.of(context).translate("search").capitalize,
+              labelText: AppLocalizations.of(context)!.translate("search").capitalize,
               controller: _searchFiledController,
               onSubmit: (value) {
                 _search();
@@ -66,24 +66,24 @@ class _SearchState extends State<Search> {
     return  !_searching ?
               _products == null ?
                 SizedBox.shrink() :
-                _products.length == 0 ?
+                _products!.length == 0 ?
                   noResults() :
                   yesResults() :
               CircularProgressIndicator();
   }
 
   Widget noResults() {
-    return Text(AppLocalizations.of(context).translate("no_results").capitalize + "!");
+    return Text(AppLocalizations.of(context)!.translate("no_results").capitalize + "!");
   }
 
   Widget yesResults() {
     return Expanded(
       child: Container(
         child: ListView.builder(
-          itemCount: _products.length,
+          itemCount: _products!.length,
           itemBuilder: (context, index) {
             return ProductCard(
-              product: _products[index],
+              product: _products![index],
             );
           },
         ),
@@ -96,10 +96,10 @@ class _SearchState extends State<Search> {
       _searching = true;
       _products = null;
     });
-    Model.sharedInstance.searchProduct(_searchFiledController.text).then((result) {
+    Model.sharedInstance.searchProduct(_searchFiledController.text)?.then((product) {
       setState(() {
         _searching = false;
-        _products = result;
+        _products = product;
       });
     });
   }

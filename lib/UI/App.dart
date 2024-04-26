@@ -19,14 +19,40 @@ class App extends StatelessWidget {
       ],
       theme: ThemeData(
         primaryColor: Colors.indigo,
-        backgroundColor: Colors.white,
-        buttonColor: Colors.lightBlueAccent,
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          background: Colors.white,
+        ),
+        textButtonTheme: TextButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.resolveWith<Color?>(
+                  (Set<MaterialState> states) {
+                if (states.contains(MaterialState.pressed)) {
+                  return Theme.of(context).colorScheme.primary.withOpacity(0.5);
+                }
+                return Colors.lightBlueAccent;
+              },
+            ),
+          ),
+        ),
       ),
       darkTheme: ThemeData(
         primaryColor: Colors.amberAccent,
-        backgroundColor: Colors.black,
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          background: Colors.black,
+        ),
         canvasColor: Colors.black,
-        buttonColor: Colors.amber,
+        textButtonTheme: TextButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.resolveWith<Color?>(
+                  (Set<MaterialState> states) {
+                if (states.contains(MaterialState.pressed)) {
+                  return Theme.of(context).colorScheme.primary.withOpacity(0.5);
+                }
+                return Colors.amber;
+              },
+            ),
+          ),
+        ),
         cardColor: Colors.grey[800],
       ),
       home: Layout(title: Constants.APP_NAME),

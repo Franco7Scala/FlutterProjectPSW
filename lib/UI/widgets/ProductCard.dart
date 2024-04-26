@@ -6,7 +6,7 @@ class ProductCard extends StatelessWidget {
   final Product product;
 
 
-  ProductCard({Key key, this.product}) : super(key: key);
+  ProductCard({required this.product}) : super();
 
   @override
   Widget build(BuildContext context) {

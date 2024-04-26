@@ -5,21 +5,20 @@ import 'package:flutter/services.dart';
 
 
 class InputField extends StatelessWidget {
-  final String labelText;
-  final bool multiline;
-  final bool enabled;
+  final String? labelText;
+  final bool? multiline;
+  final bool? enabled;
   final bool isPassword;
-  final bool isUsername;
-  final Function onChanged;
-  final Function onSubmit;
-  final Function onTap;
-  final int maxLength;
+  final ValueChanged<String?>? onChanged;
+  final ValueChanged<String?>? onSubmit;
+  final VoidCallback? onTap;
+  final int? maxLength;
   final TextAlign textAlign;
-  final TextEditingController controller;
-  final TextInputType keyboardType;
+  final TextEditingController? controller;
+  final TextInputType? keyboardType;
 
 
-  const InputField({Key key, this.labelText, this.controller, this.onChanged, this.onSubmit, this.onTap, this.keyboardType, this.multiline, this.textAlign, this.maxLength, this.isPassword = false, this.isUsername = false, this.enabled = true}) : super(key: key);
+  const InputField({this.labelText, this.controller, this.onChanged, this.onSubmit, this.onTap, this.keyboardType, this.multiline, this.maxLength, this.isPassword = false, this.enabled = true, this.textAlign = TextAlign.left}) : super();
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +28,7 @@ class InputField extends StatelessWidget {
         enabled: enabled,
         maxLength: maxLength,
         obscureText: isPassword,
-        textAlign: this.textAlign == null ? TextAlign.left : this.textAlign,
+        textAlign: this.textAlign,
         maxLines: multiline != null && multiline == true ? null : 1,
         keyboardType: keyboardType,
         inputFormatters: keyboardType == TextInputType.number ? <TextInputFormatter>[
@@ -46,20 +45,20 @@ class InputField extends StatelessWidget {
         ),
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
-            borderRadius: new BorderRadius.circular(30.0),
+            borderRadius: BorderRadius.circular(30.0),
             borderSide: BorderSide(
               color: Theme.of(context).primaryColor,
             ),
           ),
           fillColor: Theme.of(context).primaryColor,
           focusedBorder: OutlineInputBorder(
-            borderRadius: new BorderRadius.circular(30.0),
+            borderRadius: BorderRadius.circular(30.0),
             borderSide: BorderSide(
               color: Theme.of(context).primaryColor,
             ),
           ),
-          border: new OutlineInputBorder(
-            borderRadius: new BorderRadius.circular(30.0),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30.0),
             borderSide: BorderSide(
               color: Theme.of(context).primaryColor,
             ),

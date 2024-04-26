@@ -3,23 +3,25 @@ import 'package:flutter/material.dart';
 
 class CircularIconButton extends StatelessWidget {
   final IconData icon;
-  final Function onPressed;
+  final VoidCallback? onPressed;
 
-  const CircularIconButton({Key key, this.icon, this.onPressed}) : super(key: key);
+  const CircularIconButton({required this.icon, this.onPressed}) : super();
 
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(3),
+      padding: EdgeInsets.fromLTRB(50, 0, 50, 0),
       child: RawMaterialButton(
-        onPressed: onPressed,
-        elevation: 2.0,
         fillColor: Theme.of(context).primaryColor,
-        child: Icon(icon, color: Theme.of(context).backgroundColor),
-        padding: EdgeInsets.all(15.0),
+        onPressed: onPressed,
         shape: CircleBorder(),
-      )
+        elevation: 2.0,
+        child: Icon(
+          icon,
+        ),
+        padding: EdgeInsets.all(15),
+      ),
     );
   }
 

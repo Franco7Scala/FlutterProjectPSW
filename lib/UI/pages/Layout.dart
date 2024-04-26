@@ -3,6 +3,7 @@ import 'package:fakestore/UI/behaviors/AppLocalizations.dart';
 import 'package:fakestore/UI/pages/Home.dart';
 import 'package:fakestore/UI/pages/Search.dart';
 import 'package:fakestore/UI/pages/UserRegistration.dart';
+import 'package:fakestore/UI/pages/LogIn.dart';
 import 'package:flutter/material.dart';
 
 
@@ -10,14 +11,14 @@ class Layout extends StatefulWidget {
   final String title;
 
 
-  Layout({Key key, this.title}) : super(key: key);
+  Layout({required this.title}) : super();
 
   @override
   _LayoutState createState() => _LayoutState(title);
 }
 
 class _LayoutState extends State<Layout> {
-  String title;
+  late String title;
 
 
   _LayoutState(String title) {
@@ -28,7 +29,7 @@ class _LayoutState extends State<Layout> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 4,
       child: Scaffold(
         appBar: AppBar(
           shape: RoundedRectangleBorder(
@@ -39,9 +40,10 @@ class _LayoutState extends State<Layout> {
           title: Text(title),
           bottom: TabBar(
             tabs: [
-              Tab(text: AppLocalizations.of(context).translate("home").capitalize, icon: Icon(Icons.home_rounded)),
-              Tab(text: AppLocalizations.of(context).translate("search").capitalize, icon: Icon(Icons.search_rounded)),
-              Tab(text: AppLocalizations.of(context).translate("user").capitalize, icon: Icon(Icons.person_rounded)),
+              Tab(text: AppLocalizations.of(context)!.translate("home").capitalize, icon: Icon(Icons.home_rounded)),
+              Tab(text: AppLocalizations.of(context)!.translate("search").capitalize, icon: Icon(Icons.search_rounded)),
+              Tab(text: AppLocalizations.of(context)!.translate("user").capitalize, icon: Icon(Icons.person_rounded)),
+              Tab(text: AppLocalizations.of(context)!.translate("log_in").capitalize, icon: Icon(Icons.animation)),
             ],
           ),
         ),
@@ -50,6 +52,7 @@ class _LayoutState extends State<Layout> {
             Home(),
             Search(),
             UserRegistration(),
+            LogIn(),
           ],
         ),
       ),

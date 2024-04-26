@@ -1,5 +1,5 @@
 import 'package:fakestore/UI/behaviors/AppLocalizations.dart';
-import 'package:fakestore/UI/widgets/CircularIconButton.dart';
+import 'package:fakestore/UI/widgets/buttons/CircularIconButton.dart';
 import 'package:fakestore/UI/widgets/InputField.dart';
 import 'package:fakestore/model/Model.dart';
 import 'package:fakestore/model/objects/User.dart';
@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 
 
 class UserRegistration extends StatefulWidget {
-  UserRegistration({Key key}) : super(key: key);
+  UserRegistration() : super();
 
 
   @override
@@ -17,7 +17,7 @@ class UserRegistration extends StatefulWidget {
 
 class _UserRegistrationState extends State<UserRegistration> {
   bool _adding = false;
-  User _justAddedUser;
+  User? _justAddedUser;
 
   TextEditingController _firstNameFiledController = TextEditingController();
   TextEditingController _lastNameFiledController = TextEditingController();
@@ -35,7 +35,7 @@ class _UserRegistrationState extends State<UserRegistration> {
             Padding(
               padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
               child: Text(
-                AppLocalizations.of(context).translate("register").capitalize + "!",
+                AppLocalizations.of(context)!.translate("register").capitalize + "!",
                 style: TextStyle(
                   fontSize: 50,
                   color: Theme.of(context).primaryColor,
@@ -47,23 +47,23 @@ class _UserRegistrationState extends State<UserRegistration> {
               child: Column(
                 children: [
                   InputField(
-                    labelText: AppLocalizations.of(context).translate("firstName").capitalize,
+                    labelText: AppLocalizations.of(context)!.translate("firstName").capitalize,
                     controller: _firstNameFiledController,
                   ),
                   InputField(
-                    labelText: AppLocalizations.of(context).translate("lastName").capitalize,
+                    labelText: AppLocalizations.of(context)!.translate("lastName").capitalize,
                     controller: _lastNameFiledController,
                   ),
                   InputField(
-                    labelText: AppLocalizations.of(context).translate("telephoneNumber").capitalize,
+                    labelText: AppLocalizations.of(context)!.translate("telephoneNumber").capitalize,
                     controller: _telephoneNumberFiledController,
                   ),
                   InputField(
-                    labelText: AppLocalizations.of(context).translate("email").capitalize,
+                    labelText: AppLocalizations.of(context)!.translate("email").capitalize,
                     controller: _emailFiledController,
                   ),
                   InputField(
-                    labelText: AppLocalizations.of(context).translate("address").capitalize,
+                    labelText: AppLocalizations.of(context)!.translate("address").capitalize,
                     controller: _addressFiledController,
                   ),
                   CircularIconButton(
@@ -79,7 +79,7 @@ class _UserRegistrationState extends State<UserRegistration> {
                       CircularProgressIndicator() :
                       _justAddedUser != null ?
                       Text(
-                          AppLocalizations.of(context).translate("just_added") + ":" + _justAddedUser.firstName + " " + _justAddedUser.lastName + "!"
+                          AppLocalizations.of(context)!.translate("just_added") + ":" + _justAddedUser!.firstName + " " + _justAddedUser!.lastName + "!"
                       ) :
                       SizedBox.shrink(),
                     ),
@@ -105,7 +105,7 @@ class _UserRegistrationState extends State<UserRegistration> {
       email: _emailFiledController.text,
       address: _addressFiledController.text,
     );
-    Model.sharedInstance.addUser(user).then((result) {
+    Model.sharedInstance.addUser(user)?.then((result) {
       setState(() {
         _adding = false;
         _justAddedUser = result;

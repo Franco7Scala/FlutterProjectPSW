@@ -4,7 +4,7 @@ class Constants {
   static final String APP_NAME = "FakeStore";
 
   // addresses
-  static final String ADDRESS_STORE_SERVER = "***";
+  static final String ADDRESS_STORE_SERVER = "localhost:8080";
   static final String ADDRESS_AUTHENTICATION_SERVER = "***";
 
   // authentication
@@ -26,6 +26,10 @@ class Constants {
 
   // messages
   static final String MESSAGE_CONNECTION_ERROR = "connection_error";
+
+  // links
+  static final String LINK_RESET_PASSWORD = "***";
+  static final String LINK_FIRST_SETUP_PASSWORD = "***";
 
 
 }

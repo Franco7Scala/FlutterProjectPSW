@@ -5,7 +5,7 @@ class AuthenticationData {
   int expiresIn;
 
 
-  AuthenticationData({this.accessToken, this.refreshToken, this.error, this.expiresIn,});
+  AuthenticationData({required this.accessToken, required this.refreshToken, required this.error, required this.expiresIn,});
 
   factory AuthenticationData.fromJson(Map<String, dynamic> json) {
     return AuthenticationData(

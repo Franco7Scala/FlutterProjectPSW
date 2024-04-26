@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 
 
 class Home extends StatefulWidget {
-
-
-  Home({Key key}) : super(key: key);
+  Home() : super();
 
   @override
   _HomeState createState() => _HomeState();
@@ -24,7 +22,7 @@ class _HomeState extends State<Home> {
             Padding(
               padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
               child: Text(
-                AppLocalizations.of(context).translate("welcome").capitalize + "!",
+                AppLocalizations.of(context)!.translate("welcome").capitalize + "!",
                 style: TextStyle(
                   fontSize: 50,
                   color: Theme.of(context).primaryColor,

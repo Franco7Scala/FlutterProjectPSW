@@ -5,7 +5,7 @@ class Product {
   String description;
 
 
-  Product({this.id, this.name, this.barCode, this.description});
+  Product({required this.id, required this.name, required this.barCode, required this.description});
 
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(

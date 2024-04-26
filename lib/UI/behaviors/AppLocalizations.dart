@@ -7,9 +7,9 @@ class AppLocalizations {
   final Locale locale;
   AppLocalizations(this.locale);
   static const LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
-  Map<String, String> _localizedStrings;
+  late Map<String, String> _localizedStrings;
 
-  static AppLocalizations of(BuildContext context) {
+  static AppLocalizations? of(BuildContext context) {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 
@@ -23,7 +23,7 @@ class AppLocalizations {
   }
 
   String translate(String key) {
-    return _localizedStrings[key];
+    return _localizedStrings[key]!;
   }
 
 
